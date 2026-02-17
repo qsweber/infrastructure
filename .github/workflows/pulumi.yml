@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: go build ./...
       - uses: pulumi/actions@v4
-      - name: Pulumi Up
+      - name: Pulumi Login
         run: pulumi login ${{ secrets.PULUMI_CLOUD_URL }}
       - name: Pulumi Up
         run: pulumi up --stack production --non-interactive --yes
