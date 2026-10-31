@@ -1,0 +1,8 @@
+{
+  "name": "infrastructure-cdk",
+  "private": true,
+  "description": "Pins the AWS CDK CLI version used to deploy the Go CDK app in this repo.",
+  "devDependencies": {
+    "aws-cdk": "2.1142.0"
+  }
+}

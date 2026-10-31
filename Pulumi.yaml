@@ -1,3 +1,0 @@
-name: infrastructure
-runtime: go
-description: Manage shared infrastructure across multiple projects.

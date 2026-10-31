@@ -1,0 +1,29 @@
+name: Production Deployment
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write # for AWS OIDC (aws-actions/configure-aws-credentials)
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version: 1.25.8
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Install CDK CLI
+        run: npm ci
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::120356305272:role/github-actions-deploy
+          aws-region: us-west-2
+      - name: Deploy stack
+        run: npx cdk deploy github-actions-deploy --require-approval never
