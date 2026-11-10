@@ -1,4 +1,4 @@
-module github.com/qsweber/infrastructure
+module github.com/qsweber/infrastructure/cdk
 
 go 1.25.8
 
