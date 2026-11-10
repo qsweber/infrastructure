@@ -17,6 +17,7 @@ var githubDeployRepos = []string{
 	"qsweber/phone-numbers-web",
 	"qsweber/website-template",
 	"qsweber/go-template",
+	"qsweber/lunch-buddies",
 }
 
 // createGitHubActionsDeployRole sets up GitHub Actions OIDC federation so workflows get

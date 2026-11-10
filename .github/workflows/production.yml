@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: cdk
+
 permissions:
   id-token: write # for AWS OIDC (aws-actions/configure-aws-credentials)
   contents: read
@@ -16,9 +20,12 @@ jobs:
       - uses: actions/setup-go@v7
         with:
           go-version: 1.25.8
+          cache-dependency-path: cdk/go.sum
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
+          cache: npm
+          cache-dependency-path: cdk/package-lock.json
       - name: Install CDK CLI
         run: npm ci
       - uses: aws-actions/configure-aws-credentials@v4
