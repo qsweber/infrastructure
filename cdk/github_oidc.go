@@ -12,12 +12,14 @@ import (
 // role. Add a repo here (and merge to main) to let its workflows deploy to AWS without any
 // AWS secrets.
 var githubDeployRepos = []string{
+	"qsweber/go-template",
 	"qsweber/infrastructure",
+	"qsweber/lunch-buddies",
+	"qsweber/lunch-buddies-web",
+	"qsweber/personal-site",
 	"qsweber/phone-numbers",
 	"qsweber/phone-numbers-web",
 	"qsweber/website-template",
-	"qsweber/go-template",
-	"qsweber/lunch-buddies",
 }
 
 // createGitHubActionsDeployRole sets up GitHub Actions OIDC federation so workflows get
